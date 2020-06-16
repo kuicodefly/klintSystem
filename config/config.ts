@@ -11,11 +11,6 @@ export default defineConfig({
   dva: {
     hmr: true,
   },
-  layout: {
-    name: 'Ant Design Pro',
-    locale: true,
-    siderWidth: 208,
-  },
   locale: {
     // default zh-CN
     default: 'zh-CN',
@@ -33,46 +28,65 @@ export default defineConfig({
   routes: [
     {
       path: '/user',
-      layout: false,
+      // component: '', 不使用默认头部和底部
       routes: [
         {
           name: 'login',
           path: '/user/login',
-          component: './user/login',
+          component: './user/klintLogin',
         },
       ],
-    },
-
-    {
-      path: '/welcome',
-      name: 'welcome',
-      icon: 'smile',
-      component: './Welcome',
-    },
-    {
-      path: '/admin',
-      name: 'admin',
-      icon: 'crown',
-      access: 'canAdmin',
-      component: './Admin',
-      routes: [
-        {
-          path: '/admin/sub-page',
-          name: 'sub-page',
-          icon: 'smile',
-          component: './Welcome',
-        },
-      ],
-    },
-    {
-      name: 'list.table-list',
-      icon: 'table',
-      path: '/list',
-      component: './ListTableList',
     },
     {
       path: '/',
-      redirect: '/welcome',
+      component: '../layouts/SecurityLayout',
+      routes: [
+        {
+          path: '/',
+          component: '../layouts/BasicLayout',
+          authority: ['admin', 'user'],
+          routes: [
+            {
+              path: '/',
+              redirect: '/welcome',
+            },
+            {
+              path: '/welcome',
+              name: 'welcome',
+              icon: 'smile',
+              component: './Welcome',
+            },
+            {
+              path: '/admin',
+              name: 'admin',
+              icon: 'crown',
+              component: './Admin',
+              authority: ['admin'],
+              routes: [
+                {
+                  path: '/admin/sub-page',
+                  name: 'sub-page',
+                  icon: 'smile',
+                  component: './Welcome',
+                  authority: ['admin'],
+                },
+              ],
+            },
+            {
+              name: 'list.table-list',
+              icon: 'table',
+              path: '/list',
+              component: './ListTableList',
+            },
+            {
+              component: './404',
+            },
+          ],
+        },
+        {
+          component: './404',
+        },
+      ],
     },
     {
       component: './404',

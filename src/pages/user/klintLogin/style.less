@@ -1,0 +1,106 @@
+@import '~antd/es/style/themes/default.less';
+
+.ant-pro-basicLayout-content{
+    margin: 0 !important;
+}
+
+.login-warpper{
+    background: url('../../../../public/images/blueBgjpg.jpg') no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    overflow: scroll;
+}
+.login-content{
+    width: 1150px;
+    height: 600px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: url(../../../../public/images/whiteBgImg.jpg);
+    background-size: cover;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 100px;
+}
+.login-content::before{
+    content: 'CLINT 管理系统';
+    display: block;
+    position: absolute;
+    top: -55px;
+    left: 0;
+    font-family: PingFangSC-Semibold;
+    font-size: 36px;
+    color: #fff;
+    text-shadow: 0 2px 4px #4a90e2;
+    background-image:-webkit-linear-gradient(bottom right,#511781, #8f0c97, #9c2df6); 
+    background-clip:text; 
+    -webkit-text-fill-color:transparent; 
+}
+h2{
+    font-size: 25px;
+    color: #0088f4;
+    margin: 66px 0 33px;
+}
+.login-input{
+    width: 50%;
+    height: 100%;
+    padding-left: 100px;
+}
+.login-item{
+    padding: 50px 42px;
+    input:first-of-type{
+        margin-bottom: 35px;
+    }
+    .forget-link{
+        text-align: right;
+        margin: 10px auto 60px;
+        padding: 0 10px;
+        font-family: PingFangSC-Regular;
+       
+    }
+    button{
+        width: 100%;
+        height: 40px;
+    }
+}
+.link-btn{
+    cursor: pointer;
+    font-size: 14px;
+    color: #1890FF;
+}
+.info-input{
+    max-width: 100%;
+}
+input{
+    height: 40px;
+}
+.item-type{
+    background: rgba(255,255,255,0.60);
+    box-shadow: 2px 4px 10px 0 #2589F5;
+    border-radius: 4px;
+}
+.forget-item{
+    padding: 20px 42px;
+    .email-input{
+        padding: 0 11px;
+        margin-top: 15px !important;
+    }
+    .code-item{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 25px;
+        input{
+            width: 141px;
+        }
+    }
+    input[type=password]{
+        margin-top: 25px;
+    }
+    .submit-btn{
+        width: 100%;
+        margin-top: 25px;
+    }
+}
