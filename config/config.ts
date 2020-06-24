@@ -81,12 +81,6 @@ export default defineConfig({
               component: './ProductList'
             },
             {
-              name: 'list.table-list',
-              icon: 'table',
-              path: '/list',
-              component: './ListTableList',
-            },
-            {
               path: '/Administrator/accountDetail',
               component: './Administrator/accountDetail'
             },

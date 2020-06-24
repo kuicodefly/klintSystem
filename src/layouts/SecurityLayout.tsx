@@ -4,6 +4,7 @@ import { Redirect, connect, ConnectProps } from 'umi';
 import { stringify } from 'querystring';
 import { ConnectState } from '@/models/connect';
 import { CurrentUser } from '@/models/user';
+import request from 'umi-request';
 
 interface SecurityLayoutProps extends ConnectProps {
   loading?: boolean;
@@ -25,8 +26,14 @@ class SecurityLayout extends React.Component<SecurityLayoutProps, SecurityLayout
     });
     const { dispatch } = this.props;
     if (dispatch) {
+      // request.get('http://123.56.175.2:88/public/index.php/currentUser', {
+      //   params: {
+      //     account: localStorage.getItem('account')
+      //   }
+      // }).then(res => console.log(res));
       dispatch({
         type: 'user/fetchCurrent',
+        // payload: res.data
       });
     }
   }
