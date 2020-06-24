@@ -28,13 +28,14 @@ export default defineConfig({
   routes: [
     {
       path: '/user',
-      // component: '', 不使用默认头部和底部
+      // component: '', 不使用默认头部和底部,
       routes: [
         {
           name: 'login',
           path: '/user/login',
           component: './user/klintLogin',
-        },
+          wrappers: ['@/wrappers/backLogin'],
+        }
       ],
     },
     {
@@ -45,6 +46,7 @@ export default defineConfig({
           path: '/',
           component: '../layouts/BasicLayout',
           authority: ['admin', 'user'],
+          wrappers: ['@/wrappers/auth'],
           routes: [
             {
               path: '/',
@@ -53,30 +55,40 @@ export default defineConfig({
             {
               path: '/welcome',
               name: 'welcome',
-              icon: 'smile',
+              icon: 'SoundOutlined',
               component: './Welcome',
             },
             {
               path: '/admin',
               name: 'admin',
               icon: 'crown',
-              component: './Admin',
+              component: './Administrator/Admin',
               authority: ['admin'],
               routes: [
                 {
                   path: '/admin/sub-page',
                   name: 'sub-page',
-                  icon: 'smile',
+                  icon: 'UserOutlined',
                   component: './Welcome',
                   authority: ['admin'],
-                },
+                }
               ],
+            },
+            {
+              path: '/productList',
+              name: 'productList',
+              icon: 'table',
+              component: './ProductList'
             },
             {
               name: 'list.table-list',
               icon: 'table',
               path: '/list',
               component: './ListTableList',
+            },
+            {
+              path: '/Administrator/accountDetail',
+              component: './Administrator/accountDetail'
             },
             {
               component: './404',
