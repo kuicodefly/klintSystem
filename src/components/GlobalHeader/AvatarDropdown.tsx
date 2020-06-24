@@ -24,6 +24,7 @@ class AvatarDropdown extends React.Component<GlobalHeaderRightProps> {
         dispatch({
           type: 'login/logout',
         });
+        localStorage.removeItem('account');
       }
 
       return;
