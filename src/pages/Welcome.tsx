@@ -1,62 +1,21 @@
 import React from 'react';
 import { PageHeaderWrapper } from '@ant-design/pro-layout';
-import { Card, Typography, Alert } from 'antd';
-import styles from './Welcome.less';
+import './Welcome.less';
 
-const CodePreview: React.FC<{}> = ({ children }) => (
-  <pre className={styles.pre}>
-    <code>
-      <Typography.Text copyable>{children}</Typography.Text>
-    </code>
-  </pre>
-);
+
 
 export default (): React.ReactNode => (
   <PageHeaderWrapper>
-    <Card>
-      <Alert
-        message="umi ui 现已发布，点击右下角 umi 图标即可使用"
-        type="success"
-        showIcon
-        banner
-        style={{
-          margin: -12,
-          marginBottom: 24,
-        }}
-      />
-      <Typography.Text strong>
-        <a target="_blank" rel="noopener noreferrer" href="https://pro.ant.design/docs/block">
-          基于 block 开发，快速构建标准页面
-        </a>
-      </Typography.Text>
-      <CodePreview> npm run ui</CodePreview>
-      <Typography.Text
-        strong
-        style={{
-          marginBottom: 12,
-        }}
-      >
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://pro.ant.design/docs/available-script#npm-run-fetchblocks"
-        >
-          获取全部区块
-        </a>
-      </Typography.Text>
-      <CodePreview> npm run fetch:blocks</CodePreview>
-    </Card>
-    <p
-      style={{
-        textAlign: 'center',
-        marginTop: 24,
-      }}
-    >
-      Want to add more pages? Please refer to{' '}
-      <a href="https://pro.ant.design/docs/block-cn" target="_blank" rel="noopener noreferrer">
-        use block
-      </a>
-      。
-    </p>
+      <div className="warpper">
+        <h1>系统声名</h1>
+        <p>本网站为个人学习网站,不会涉及任何商业用途!</p>
+        <p>本网站源码已经在github上开发,欢迎大家相互讨论,指出不足,共同进步!</p>
+        <ul>
+          技术相关:
+          <li>管理端: ant-design-pro v4(react, ant-design, umi等)</li>
+          <li>后端: 阿里云ECS(Nginx 1.18.0) MySQL 5.6.48 think PHP6</li>
+          <li>小程序端: uniapp</li>
+        </ul>
+      </div>
   </PageHeaderWrapper>
 );
