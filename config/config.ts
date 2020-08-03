@@ -81,6 +81,36 @@ export default defineConfig({
               component: './ProductList'
             },
             {
+              path: '/hooks',
+              name: 'hooks',
+              icon: 'table',
+              component: './Hooks'
+            },
+            {
+              path: '/route',
+              name: 'route',
+              icon: 'crown',
+              component: './Route',
+              routes: [
+                {
+                  path: '/',
+                  redirect: './first',
+                },
+                {
+                  path: '/route/first',
+                  component: './Route/RouteFirst',
+                },
+                {
+                  path: '/route/second',
+                  component: './Route/RouteSecond'
+                },
+                {
+                  path: '/route/last',
+                  component: './Route/RouteLast'
+                }
+              ]
+            },
+            {
               path: '/Administrator/accountDetail',
               component: './Administrator/accountDetail'
             },
