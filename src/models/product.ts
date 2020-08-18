@@ -50,10 +50,8 @@ const Product: ProductModelType = {
         }
     },
     reducers: {
-        // 初始化数组赋值操作
-        initAccountList (state, { payload } ) {
-            console.log(payload);
-            let productItem = deepClone(state);
+        updataList (state: StateType, { payload }: any ) {
+            const productItem = deepClone(state);
             productItem.productList.push(payload.productList);
             return {
                 ...state,
@@ -63,7 +61,7 @@ const Product: ProductModelType = {
     }
 }
 function deepClone(arr: StateType) {
-    let _obj = JSON.stringify(arr);
-        return JSON.parse(_obj);
+    const obj = JSON.stringify(arr);
+        return JSON.parse(obj);
 }
 export default Product;
