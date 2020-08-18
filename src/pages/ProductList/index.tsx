@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'dva';
-import { Input, Button } from 'antd';
+import { Input, Button, List, Card } from 'antd';
 
 
 interface PorductItem {
@@ -11,10 +11,9 @@ interface PorductItem {
 const ProductList  = (props: any) => {
     const [newProduct, addProduct] = useState<PorductItem>({});
     const handleAdd = () => {
-        console.log(newProduct);
         if (newProduct.name && newProduct.age) {
             props.dispatch({
-                type: 'product/updataList',
+                type: 'product/initAccountList',
                 payload: {
                     productList: newProduct
                 }
@@ -36,25 +35,41 @@ const ProductList  = (props: any) => {
         });
     }
 
+    const proxyAccoun = () => {
+        props.dispatch({
+            type: 'product/fetchAccount',
+            payload: {}
+        });
+    }
     return (
         <div>
-            产品列表:
-            <ul>
-                {
-                    props.productList.productList.map((element: any, index: number) => {
-                        return <li key={index}>{ element.name }: {element.age}</li>
-                    })
-                }
-            </ul>
-           <Input value={newProduct.name} onChange={(e)=>{changeState(e.target.value, 0)}} />
-           <Input value={newProduct.age} onChange={(e)=>{changeState(e.target.value, 1)}} />
+            <List
+            grid={{ gutter: 16, column: 4 }}
+            dataSource={props.state.productList}
+            renderItem={(item: any) => (
+                <List.Item>
+                  <Card title={item.name}>
+                      {item.age}
+                  </Card>
+                </List.Item>
+            )}
+            />
+            <Input 
+            value={newProduct.name} 
+            onChange={(e)=>{changeState(e.target.value, 0)}} 
+            />
+            <Input 
+            value={newProduct.age} 
+            onChange={(e)=>{changeState(e.target.value, 1)}} 
+            />
             <Button onClick={handleAdd}>add product</Button>
+            <Button onClick={proxyAccoun}>use effects</Button>
         </div>
     )
 }   
 const mapStateToProps = (state: any) => {
     return {
-        productList: state.product
+        state: state.product,
     }
 }
 export default connect(mapStateToProps)(ProductList);

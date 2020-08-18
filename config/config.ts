@@ -81,6 +81,12 @@ export default defineConfig({
               component: './ProductList'
             },
             {
+              path: '/hookTest',
+              name: 'hookTest',
+              component: './HookTest',
+              icon: 'table'
+            },
+            {
               path: '/Administrator/accountDetail',
               component: './Administrator/accountDetail'
             },

@@ -1,4 +1,5 @@
 import api from '@/utils/api';
+import request from 'umi-request';
 import {LoginData} from '@/services/login';
 
 export async function  fetchAccountList (data: LoginData): Promise<any> {
@@ -21,4 +22,13 @@ export async function  sendEmail(data: LoginData): Promise<any> {
 }
 export async function  queryUser(data: LoginData): Promise<any> {
     return api('public/index.php/currentUser', data);
+}
+export async function  queryUserAsync(data: LoginData) {
+    console.log(data);
+    return request.get(' http://123.56.175.2:88/public/index.php/currentUser', {
+        params: {
+            ...data
+        }
+    })
+    .then(response => {return response})
 }
