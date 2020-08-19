@@ -5,6 +5,7 @@ export default {
   'menu.admin': '权限管理',
   'menu.admin.sub-page': '账号管理',
   'menu.productList': '产品列表',
+  'menu.hookTest': '钩子测试',
   'menu.hooks': '钩子',
   'menu.route': '路由',
   'menu.callbackRender': '回调渲染',

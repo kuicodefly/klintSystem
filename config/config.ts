@@ -81,6 +81,12 @@ export default defineConfig({
               component: './ProductList'
             },
             {
+              path: '/hookTest',
+              name: 'hookTest',
+              component: './HookTest',
+              icon: 'table'
+            },
+           {
               path: '/hooks',
               name: 'hooks',
               icon: 'table',
@@ -109,6 +115,7 @@ export default defineConfig({
                   component: './Route/RouteLast'
                 }
               ]
+
             },
             {
               path: '/callbackRender',
