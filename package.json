@@ -32,7 +32,6 @@
     "test:component": "umi test ./src/components",
     "tsc": "tsc"
   },
- 
   "lint-staged": {
     "**/*.less": "stylelint --syntax less",
     "**/*.{js,jsx,ts,tsx}": "npm run lint-staged:js",
@@ -50,6 +49,7 @@
     "@ant-design/pro-layout": "^5.0.16",
     "@ant-design/pro-table": "2.3.4",
     "antd": "4.3.3",
+    "bizcharts": "^4.0.12",
     "classnames": "^2.2.6",
     "lodash": "^4.17.11",
     "moment": "^2.25.3",

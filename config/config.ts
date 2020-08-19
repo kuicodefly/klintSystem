@@ -111,6 +111,25 @@ export default defineConfig({
               ]
             },
             {
+              path: '/callbackRender',
+              name: 'callbackRender',
+              component: './callbackRender',
+              icon: 'table',
+            },
+            {
+              path: '/antV',
+              name: 'antV',
+              // component: './callbackRender',
+              icon: 'table',
+              routes: [
+                {
+                  path: '/antV/g2',
+                  component: './AntV/G2',
+                  name: 'G2'
+                },
+              ]
+            },
+            {
               path: '/Administrator/accountDetail',
               component: './Administrator/accountDetail'
             },

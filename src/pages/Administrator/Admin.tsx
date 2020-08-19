@@ -114,7 +114,7 @@ const accountAdmin: React.FC<{}> = () => {
     </Popconfirm>;
 
 
-  const columns = [
+  const columns: Array<any> = [
     {
       title: 'ID',
       dataIndex: 'id',
